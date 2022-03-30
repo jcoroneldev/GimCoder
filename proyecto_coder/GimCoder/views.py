@@ -8,8 +8,18 @@ from GimCoder.forms import *
 # Create your views here.
 
 def clientes(request):
+     
+     data = request.GET["nombre"]
+     print (data)
 
-    return render(request,"GimCoder/clientes.html")
+     if data:
+          cliente1 = cliente.objects.filter( nombre = data )
+          print (cliente1)
+          
+          return render(request,"GimCoder/clientes.html", {"cliente": cliente1[0]})
+     else:
+          return render(request,"GimCoder/clientes.html")
+
 
 def profesores(request):
 
