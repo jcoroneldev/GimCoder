@@ -24,7 +24,7 @@ def profesores(request):
           data = request.GET['nombre']
           print (data)
           if data:
-               profesor1 = profesor.objects.filter( nombre = data )
+               ejercicio1 = profesor.objects.filter( nombre = data )
                print (profesor1)
                return render(request,"GimCoder/profesores.html", {"profesor": profesor1[0]})
      except:
@@ -35,8 +35,15 @@ def rutinas(request):
      return render(request,"GimCoder/rutinas.html")
 
 def ejercicios(request):
-
-     return render(request,"GimCoder/ejercicios.html")
+     try:
+          data = request.GET['nombre']
+          print (data)
+          if data:
+               ejercicio1 = ejercicio.objects.filter( nombre = data )
+               print (ejercicio1)
+               return render(request,"GimCoder/ejercicios.html", {"ejercicio": ejercicio1[0]})
+     except:
+          return render(request,"GimCoder/ejercicios.html")
 
 def formularioclientes(request):
      if request.method == "POST":
@@ -73,6 +80,26 @@ def formularioprofes(request):
           formulario = profesorform()
           
           return render(request,"GimCoder/formularioprofesores.html", {"formulario": formulario})
+
+def formularioejercicios(request):
+     if request.method == "POST":
+          nuevoejercicio = ejercicioform(request.POST)
+          
+          if nuevoejercicio.is_valid():
+               print("Formulario Valido")
+               data = nuevoejercicio.cleaned_data
+               carganuevoejercicio = ejercicio(nombre = data['nombre'], detalle = data['detalle'], demostracion = data['demostracion'], repeticiones = data['repeticiones'], duracion = data['duracion'])
+               carganuevoejercicio.save()
+
+          return render(request,"GimCoder/ejercicios.html")
+     
+     else:
+          
+          formulario = ejercicioform()
+          
+          return render(request,"GimCoder/formularioejercicios.html", {"formulario": formulario})
+
+
 
 def inicio(request):
     nombre_gim= "Dara's 4 Gimnasia"

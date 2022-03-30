@@ -1,0 +1,26 @@
+{% extends 'GimCoder/base.html'%}
+    {%  load static %}
+
+
+{% block main_content %}
+
+{% if Formulario.errors%}
+<p>Error en el formulario</p>
+{% endif %}
+<p></p>
+<h3>Formulario de ingreso nuevo ejercicio:</h3>
+<p></p>
+
+    <form action="/formejercicios/" method="POST">
+        {% csrf_token %} 
+        
+        <table>
+            {{formulario}}
+        </table>
+        <p></p>
+        <p></p>
+        <input type="submit" value="Cargar ejercicio">
+
+    </form> 
+    
+{% endblock main_content %}

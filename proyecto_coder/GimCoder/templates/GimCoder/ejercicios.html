@@ -3,7 +3,44 @@
 
 
 {% block main_content %}
-
+<p></p>
 <h1> ejercicios </h1>
+<p></p>
+<form action="/formejercicios/" method="get">
+    <input type="submit" value="Nuevo ejercicio" />
+</form>
+<p></p>
+<p></p>
+<h3>Buscar ejercicio:</h3>
+
+<form action="/ejercicios/" method="get">
+
+    <input type="text" name="nombre" id="ejercicio">
+    <p></p>
+    <input type="submit" value="Buscar">
+    
+</form>
+
+<p></p>
+
+{% if ejercicio %}
+
+<h4>ejercicio encontrado:</h4>
+
+<h5>{{ejercicio.nombre}} :</h5>
+
+<p></p>
+<p>Detalle: {{ejercicio.detalle}}</p>
+<p>Demostracion : {{ejercicio.demostracion}}</p>
+<p></p>
+
+{% endif %}
+<p></p>
+
+
+
+
+
+
 
 {% endblock main_content %}]
