@@ -1,0 +1,23 @@
+{% extends 'GimCoder/base.html'%}
+    {%  load static %}
+
+
+{% block main_content %}
+
+{% if Formulario.errors%}
+<p>Error en el formulario</p>
+{% endif %}
+
+
+    <form action="/formclientes/" method="POST">
+        {% csrf_token %}
+    
+        <table>
+            {{ Formulario }}
+        </table>
+   
+        <input type="submit" value="Cargar Usuario">
+
+    </form> 
+    
+{% endblock main_content %}

@@ -16,10 +16,10 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Dara's 4 Gimnasia</div>
+                <div class="sidebar-heading border-bottom bg-light"> <img height="50px" width="50px"  src="https://cdn2.vectorstock.com/i/1000x1000/21/31/gym-icon-vector-732131.jpg" alt="Gim Icon"></div>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'clientes' %}">Clientes</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'profesores' %}">Proferes</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'profesores' %}">Profesores</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'ejercicios' %}">Ejercicios</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'rutinas' %}">Rutinas</a>
                 </div>
@@ -29,12 +29,12 @@
                 <!-- Top navigation-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <div class="container-fluid">
-                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="btn btn-primary" id="sidebarToggle">Clases</button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-                                <li class="nav-item active"><a class="nav-link" href="#!">Home</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'clientes' %}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.google.com/maps/place/Gimnasio+Dara's+4/@-31.2459292,-61.4911999,14.5z/data=!4m5!3m4!1s0x0:0xc968b20f4e80c809!8m2!3d-31.2460626!4d-61.4913272">Ubicacion</a></li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

@@ -19,6 +19,7 @@ from GimCoder.views import profesores, clientes, rutinas, ejercicios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('GimCoder.urls')),
     path('gimcoder/', include('GimCoder.urls'))
 
 ]
