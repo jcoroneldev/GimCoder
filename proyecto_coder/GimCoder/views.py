@@ -8,20 +8,27 @@ from GimCoder.forms import *
 # Create your views here.
 
 def clientes(request):
-     
-     data = request.GET["nombre"]
-     print (data)
-     if data:
-          cliente1 = cliente.objects.filter( nombre = data )
-          print (cliente1)
-          return render(request,"GimCoder/clientes.html", {"cliente": cliente1[0]})
-     else:
+     try:
+          data = request.GET['nombre']
+          print (data)
+          if data:
+               cliente1 = cliente.objects.filter( nombre = data )
+               print (cliente1)
+               return render(request,"GimCoder/clientes.html", {"cliente": cliente1[0]})
+     except:
           return render(request,"GimCoder/clientes.html")
 
 
 def profesores(request):
-
-     return render(request,"GimCoder/profesores.html")
+     try:
+          data = request.GET['nombre']
+          print (data)
+          if data:
+               profesor1 = profesor.objects.filter( nombre = data )
+               print (profesor1)
+               return render(request,"GimCoder/profesores.html", {"profesor": profesor1[0]})
+     except:
+          return render(request,"GimCoder/profesores.html")
 
 def rutinas(request):
 

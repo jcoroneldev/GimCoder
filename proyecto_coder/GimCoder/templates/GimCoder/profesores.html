@@ -11,7 +11,28 @@
 </form>
 <p></p>
 <p></p>
-<h3>Listado de Profesores </h3>
+
+<h3>Buscar Profesor:</h3>
+
+<form action="/profesores/" method="get">
+
+    <input type="text" name="nombre" id="nombre">
+    <p></p>
+    <input type="submit" value="Buscar">
+    
+</form>
+
+{% if profesor %}
+<p></p>
+<h4>Profesor encontrado:</h4>
+<p></p>
+<h5>{{profesor.nombre}} {{profesor.apellido}}</h5>
+<p></p>
+<p>Turno: {{profesor.turno}}</p>
+<p></p>
+
+{% endif %}
+<p></p>
 
 
 
