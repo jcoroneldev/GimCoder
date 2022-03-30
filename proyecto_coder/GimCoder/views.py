@@ -3,7 +3,7 @@ import re
 from django.http import HttpResponse
 from django.shortcuts import render
 from GimCoder.models import *
-from GimCoder.forms import ClienteFormulario
+from GimCoder.forms import *
 
 # Create your views here.
 
@@ -25,18 +25,35 @@ def ejercicios(request):
 
 def formularioclientes(request):
      if request.method == "POST":
-          NuevoClienteFormulario = ClienteFormulario(request.POST)
-          print (NuevoClienteFormulario)
-          if NuevoClienteFormulario.is_valid:
-               cliente1 = NuevoClienteFormulario.cleaned_data
-               clientenuevo = cliente(cliente1['nombre'],cliente1['apellido'],cliente1['email'])
-               clientenuevo.save()
-          return render(request,"clientes.html")
+          nuevocliente = clienteform(request.POST)
+          
+          if nuevocliente.is_valid:
+               print("Formulario Valido")
+               nuevoclientelimpio = nuevocliente.cleaned_data
+
+          return render(request,"GimCoder/clientes.html")
+     
      else:
           
-          NuevoClienteFormulario = ClienteFormulario()
+          formulario = clienteform()
           
-          return render(request,"GimCoder/formularioclientes.html", {"Formulario": NuevoClienteFormulario})
+          return render(request,"GimCoder/formularioprofesores.html", {"formulario": formulario})
+
+def formularioprofes(request):
+     if request.method == "POST":
+          nuevoprofesor = profesorform(request.POST)
+          
+          if nuevoprofesor.is_valid:
+               print("Formulario Valido")
+               nuevoprofesorlimpio = nuevoprofesor.cleaned_data
+
+          return render(request,"GimCoder/clientes.html")
+     
+     else:
+          
+          formulario = profesorform()
+          
+          return render(request,"GimCoder/formularioprofesores.html", {"formulario": formulario})
 
 def inicio(request):
     nombre_gim= "Dara's 4 Gimnasia"

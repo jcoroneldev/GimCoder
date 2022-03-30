@@ -9,5 +9,6 @@ urlpatterns = [
     path('rutinas/', rutinas, name="rutinas"),
     path('ejercicios/', ejercicios, name="ejercicios"),
     path('formclientes/', formularioclientes, name="formclientes"),
+    path('formprofesores/', formularioprofes, name="formclientes"),
 
 ]
