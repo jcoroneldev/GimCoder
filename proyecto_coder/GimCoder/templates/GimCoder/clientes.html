@@ -13,20 +13,25 @@
 <p></p>
 <h3>Buscar Cliente:</h3>
 
-<form action="/clientes" method="get">
+<form action="/clientes/" method="get">
 
-    <input type="text" name="nombre" id="">
+    <input type="text" name="nombre" id="cliente">
     <p></p>
     <input type="submit" value="Buscar">
     
 </form>
 
 <p></p>
-<p></p>
+
 {% if cliente %}
-<h3>Cliente encontrado: </h3>
-<h3>{{cliente.nombre}} {{cliente.apellido}} </h3>
+
+cliente encontrado:
+
+{{cliente.nombre}} {{cliente.apellido}}
+
 {% endif %}
+<p></p>
+
 
 
 

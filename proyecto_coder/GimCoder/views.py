@@ -11,11 +11,9 @@ def clientes(request):
      
      data = request.GET["nombre"]
      print (data)
-
      if data:
           cliente1 = cliente.objects.filter( nombre = data )
           print (cliente1)
-          
           return render(request,"GimCoder/clientes.html", {"cliente": cliente1[0]})
      else:
           return render(request,"GimCoder/clientes.html")
@@ -37,9 +35,11 @@ def formularioclientes(request):
      if request.method == "POST":
           nuevocliente = clienteform(request.POST)
           
-          if nuevocliente.is_valid:
+          if nuevocliente.is_valid():
                print("Formulario Valido")
-               nuevoclientelimpio = nuevocliente.cleaned_data
+               data = nuevocliente.cleaned_data
+               carganuevocliente = cliente(nombre = data['nombre'], apellido = data['apellido'], email = data['email'] , peso = data['peso'], altura = data['altura'])
+               carganuevocliente.save()     
 
           return render(request,"GimCoder/clientes.html")
      
@@ -47,15 +47,17 @@ def formularioclientes(request):
           
           formulario = clienteform()
           
-          return render(request,"GimCoder/formularioprofesores.html", {"formulario": formulario})
+          return render(request,"GimCoder/formularioclientes.html", {"formulario": formulario})
 
 def formularioprofes(request):
      if request.method == "POST":
           nuevoprofesor = profesorform(request.POST)
           
-          if nuevoprofesor.is_valid:
+          if nuevoprofesor.is_valid():
                print("Formulario Valido")
-               nuevoprofesorlimpio = nuevoprofesor.cleaned_data
+               data = nuevoprofesor.cleaned_data
+               carganuevoprofesor = profesor(nombre = data['nombre'], apellido = data['apellido'], turno = data['turno'])
+               carganuevoprofesor.save()
 
           return render(request,"GimCoder/clientes.html")
      
